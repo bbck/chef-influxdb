@@ -104,6 +104,9 @@ default['influxdb']['config'] = {
   }
 }
 
+# Install the InfluxDB upstream repository
+default['influxdb']['install_repository'] = true
+
 case node['platform_family']
 when 'rhel', 'fedora'
   case node['platform']

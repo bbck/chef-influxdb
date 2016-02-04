@@ -15,6 +15,7 @@ if platform_family? 'rhel'
     description 'InfluxDB Repository - RHEL \$releasever'
     baseurl node['influxdb']['upstream_repository']
     gpgkey 'https://repos.influxdata.com/influxdb.key'
+    only_if { node['influxdb']['install_repository'] }
   end
 else
   package 'apt-transport-https'
@@ -25,6 +26,7 @@ else
     components ['stable']
     arch 'amd64'
     key 'https://repos.influxdata.com/influxdb.key'
+    only_if { node['influxdb']['install_repository'] }
   end
 end
 
